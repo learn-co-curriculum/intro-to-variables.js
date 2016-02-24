@@ -1,6 +1,6 @@
 # JavaScript Variables
 
-## Objectives 
+## Objectives
 + Declare a variable without assigning a value
 + Declare and define a variable
 + multi-line variable assignment
@@ -15,7 +15,7 @@ Just like Ruby, variables are assigned values using the `=` operator. Variable n
 
 ## Declaring Variables
 
-Lets say I have the variable `word`. In Ruby, to assign a value to this variable, we would simple do 
+Lets say I have the variable `word`. In Ruby, to assign a value to this variable, we would simple do
 
 ```ruby
 word = "hey"
@@ -84,7 +84,7 @@ Changing the value of a variable in JavaScript works just in the same way as it 
 
 ```js
 var word = "hey";
-word; 
+word;
 // returns "hey"
 word = "javascript";
 word;
@@ -95,7 +95,7 @@ word;
 
 Just like Ruby, JavaScript also has local and global variables. In Ruby, a program is written within the scope `Main`. The JavaScript equivalent is `window` (the browser window).
 
-We'll dive much deeper into scope in JavaScript, but for all intents and purposes, a global variable is any variable defined within the `window`. You can also think of it as any variable that exists outside of a function (or method) is a global variable. 
+We'll dive much deeper into scope in JavaScript, but for all intents and purposes, a global variable is any variable defined within the `window`. You can also think of it as any variable that exists outside of a function (or method) is a global variable.
 
 
 
@@ -169,26 +169,63 @@ It's been mentioned already, but again, it is best to use the key word `var` bef
 
 ## Changing Variable Values
 
-Local variable assignment can overwrite global variable assignment:
+In JavaScript, every function creates its own environment or **scope**. Declaring a variable (with `var`) inside a function makes that variable available in that function's scope and to any scopes within that function; but it does not make the variable available to the outer scope.
+
+Put another way, within a function, you can access variables declared in that function and in that function's outer scope; you cannot access variables declared in functions within that function.
+
+Still a little confused? Just remember that when the interpreter executes your code, it first checks the current function's scope for a variable. If the variable is found, it uses that value; otherwise, it checks the next outer scope (and so on) until it finds the variable or determines that the variable has not been defined.
+
+A few examples will help clarify:
 
 ```javascript
-volume = 10; //declares a global variable called volume and sets it to 10
+// declares a global variable called volume and sets it to 10
+volume = 10;
 
 function returnEleven () {
-  var volume = 11;  //declares a local variable called volume and sets it to 11
+  // declares a local variable called volume and sets it to 11
+  var volume = 11;
   return volume;
 }
 
-returnEleven(); // returns 11
-volume; // the global variable is still 10
+// returns 11
+returnEleven();
+// the global variable is still 10
+volume;
 
 function goToEleven(){
-  volume = 11;  //changes the global variable to 11
+  // changes the global variable to 11
+  volume = 11;  
   return volume;
 }
 
-goToEleven(); // returns 11
-volume; // the global variable volume has been changed to 11
+// returns 11
+goToEleven();
+// the global variable volume has been changed to 11
+volume;
+
+function returnTwelveMaker() {
+  var volume = 11;
+
+  return function twelveMaker() {
+    // we can access `volume` because it has been declared in `twelveMaker()`'s
+    // out scope
+    return volume + 1;
+  }
+}
+
+
+// returns the function `twelveMaker()`
+returnTwelveMaker();
+
+// returns 12
+returnTwelveMaker()();
+
+function returnErrorMaker() {
+  return vol
+}
+
+// returns the error `Uncaught ReferenceError: vol is not defined(…)`
+returnErrorMaker()
 ```
 
 However, global variable assignment can't overwrite local variable assignment, rather it simply reassigns the value of the local variable:
