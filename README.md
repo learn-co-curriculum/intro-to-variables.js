@@ -1,6 +1,6 @@
 # JavaScript Variables
 
-## Objectives 
+## Objectives
 + Declare a variable without assigning a value
 + Declare and define a variable
 + multi-line variable assignment
@@ -15,7 +15,7 @@ Just like Ruby, variables are assigned values using the `=` operator. Variable n
 
 ## Declaring Variables
 
-Lets say I have the variable `word`. In Ruby, to assign a value to this variable, we would simple do 
+Lets say I have the variable `word`. In Ruby, to assign a value to this variable, we would simple do
 
 ```ruby
 word = "hey"
@@ -84,7 +84,7 @@ Changing the value of a variable in JavaScript works just in the same way as it 
 
 ```js
 var word = "hey";
-word; 
+word;
 // returns "hey"
 word = "javascript";
 word;
@@ -95,27 +95,40 @@ word;
 
 Just like Ruby, JavaScript also has local and global variables. In Ruby, a program is written within the scope `Main`. The JavaScript equivalent is `window` (the browser window).
 
-We'll dive much deeper into scope in JavaScript, but for all intents and purposes, a global variable is any variable defined within the `window`. You can also think of it as any variable that exists outside of a function (or method) is a global variable. 
+We'll dive much deeper into scope in JavaScript, but for all intents and purposes, a global variable is any variable defined within the `window`. You can also think of it as any variable that exists outside of a function (or method) is a global variable.
 
 
 
 ```javascript
-var firstNum = 10; // is defined in the window and is thus accessible by the entire program
-window.firstNum;
+// is defined in the window and is thus accessible by the entire program
+var firstNum = 10;
+
 // returns 10
+window.firstNum;
+
+// also returns 10
+firstNum;
 ```
 
 But if we declare a variable inside a function:
 
 ```js
 function myFunk(){
-  var funky = true;
+  var funky = function() {
+    console.log('so funky');
+  };
 }
 
 myFunk();
+
+// throws "Undefind is not a function" because `funky` is variable defined
+// inside a function and is thus local to that function.
 window.funky();
-// returns undefined because funky is variable defined inside a function and is thus a variable local to that function.
+
+// This is the same as calling `myFunk()`
+window.myFunk();
 ```
+
 These consequences are due to JavaScript's approach to scoping. In Ruby, we didn't have to worry too much about scoping because all variables assigned within a method are scoped to just that method. For instance:
 
 ```ruby
