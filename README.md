@@ -1,6 +1,6 @@
 # JavaScript Variables
 
-## Objectives 
+## Objectives
 + Declare a variable without assigning a value
 + Declare and define a variable
 + multi-line variable assignment
@@ -15,7 +15,7 @@ Just like Ruby, variables are assigned values using the `=` operator. Variable n
 
 ## Declaring Variables
 
-Lets say I have the variable `word`. In Ruby, to assign a value to this variable, we would simple do 
+Lets say I have the variable `word`. In Ruby, to assign a value to this variable, we would simple do
 
 ```ruby
 word = "hey"
@@ -84,7 +84,7 @@ Changing the value of a variable in JavaScript works just in the same way as it 
 
 ```js
 var word = "hey";
-word; 
+word;
 // returns "hey"
 word = "javascript";
 word;
@@ -95,7 +95,7 @@ word;
 
 Just like Ruby, JavaScript also has local and global variables. In Ruby, a program is written within the scope `Main`. The JavaScript equivalent is `window` (the browser window).
 
-We'll dive much deeper into scope in JavaScript, but for all intents and purposes, a global variable is any variable defined within the `window`. You can also think of it as any variable that exists outside of a function (or method) is a global variable. 
+We'll dive much deeper into scope in JavaScript, but for all intents and purposes, a global variable is any variable defined within the `window`. You can also think of it as any variable that exists outside of a function (or method) is a global variable.
 
 
 
@@ -121,7 +121,6 @@ These consequences are due to JavaScript's approach to scoping. In Ruby, we didn
 ```ruby
 def make_variable
   cute_animal = "sugar glider"
-  return cute_animal
 end
 
 make_variable
@@ -144,6 +143,18 @@ makeVariable();
 
 cuteAnimal;
 // "sugar glider"
+
+function privateVariable() {
+  var uglyAnimal = "blob fish";
+
+  return uglyAnimal;
+}
+
+privateVariable();
+// "blob fish"
+
+uglyAnimal
+// Uncaught ReferenceError: uglyAnimal is not defined
 ```
 
 See how Ruby forgets that there is a variable outside of the method but JavaScript doesn't? Now might be a good time to drop to your knees, throw your fists into the air, and scream-ask, "What?!?"
