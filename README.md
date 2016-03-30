@@ -100,22 +100,35 @@ We'll dive much deeper into scope in JavaScript, but for all intents and purpose
 
 
 ```javascript
-var firstNum = 10; // is defined in the window and is thus accessible by the entire program
-window.firstNum;
+// is defined in the window and is thus accessible by the entire program
+var firstNum = 10;
+
 // returns 10
+window.firstNum;
+
+// also returns 10
+firstNum;
 ```
 
 But if we declare a variable inside a function:
 
 ```js
 function myFunk(){
-  var funky = true;
+  var funky = function() {
+    console.log('so funky');
+  };
 }
 
 myFunk();
+
+// throws "Undefind is not a function" because `funky` is variable defined
+// inside a function and is thus local to that function.
 window.funky();
-// returns undefined because funky is variable defined inside a function and is thus a variable local to that function.
+
+// This is the same as calling `myFunk()`
+window.myFunk();
 ```
+
 These consequences are due to JavaScript's approach to scoping. In Ruby, we didn't have to worry too much about scoping because all variables assigned within a method are scoped to just that method. For instance:
 
 ```ruby
