@@ -195,26 +195,33 @@ variable's initial declaration and its subsequent change(s)), you're gonna have 
 Local variable assignment can overwrite global variable assignment:
 
 ```javascript
-volume = 10; //declares a global variable called volume and sets it to 10
+// declares a global variable called "volume" and sets it to 10
+volume = 10;
 
 function returnEleven () {
-  var volume = 11;  //declares a local variable called volume and sets it to 11
+  // declares a local variable called "volume" and sets it to 11
+  var volume = 11;  
   return volume;
 }
 
-returnEleven(); // returns 11
-volume; // the global variable is still 10
+// returns 11
+returnEleven();
+// the global variable is still 10
+volume;
 
 function goToEleven(){
-  volume = 11;  //changes the global variable to 11
+  // changes the global variable to 11
+  volume = 11;  
   return volume;
 }
 
-goToEleven(); // returns 11
-volume; // the global variable volume has been changed to 11
+// returns 11
+goToEleven();
+// the global variable `volume` has been changed to 11
+volume;
 ```
 
-However, global variable assignment can't overwrite local variable assignment, rather it simply reassigns the value of the local variable:
+The same principle applies in reverse. Declaring a variable in an inner scope (say, inside a function) doesn't make it available to an outer scope (say, `window` (or `global` if we're in Node.js)).
 
 ```javascript
 function sayHello() {
@@ -223,13 +230,18 @@ function sayHello() {
   return greeting;
 }
 
+// Returns "hello"
 sayHello()
-// Returns "hello",
-// This demonstrates that the variable greeting is now pointing to the string "hello" instead of "hola"
+// Even though `sayHello()` initializes the variable `greeting` with the string
+// "hola", the very next line assigns the string "hello" to the variable `
+// greeting`, which is the value we get when `sayHello()` returns `greeting`.
 
+// However, if we attempt to access the variable `greeting` in the outer scope,
+// we get an error
 greeting
 // ReferenceError: greeting is not defined
-// This demonstrates that the variable greeting is still local instead of global
+// This demonstrates that we have only declared the variable `greeting` inside
+// `sayHello()`'s scope.
 ```
 
 
