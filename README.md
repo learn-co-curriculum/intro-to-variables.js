@@ -121,7 +121,6 @@ These consequences are due to JavaScript's approach to scoping. In Ruby, we didn
 ```ruby
 def make_variable
   cute_animal = "sugar glider"
-  return cute_animal
 end
 
 make_variable
@@ -144,6 +143,18 @@ makeVariable();
 
 cuteAnimal;
 // "sugar glider"
+
+function privateVariable() {
+  var uglyAnimal = "blob fish";
+
+  return uglyAnimal;
+}
+
+privateVariable();
+// "blob fish"
+
+uglyAnimal
+// Uncaught ReferenceError: uglyAnimal is not defined
 ```
 
 Now might be a good time to drop to your knees, throw your fists into the air, and scream-ask, "What?!?"
