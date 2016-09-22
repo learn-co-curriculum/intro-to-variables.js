@@ -46,7 +46,7 @@ var word = "hey";
 
 ## Multi-line Variable Assignment
 
-Let's say I needed to declare and define multiple variables. It feels like a lot to have to repeat `var` over and over again. JavaScript allows us to do multi-line variable assignment to alleviate this pain. Every variable must be separated with a comma, and end the entire line must end with a semicolon.
+Let's say I needed to declare and define multiple variables. It feels like a lot to have to repeat `var` over and over again. JavaScript allows us to do multi-line variable assignment to alleviate this pain. Every variable must be separated with a comma, and the entire line must end with a semicolon.
 
 Let's condense the below code into one line:
 
@@ -95,7 +95,7 @@ word;
 
 Just like Ruby, JavaScript also has local and global variables. In Ruby, a program is written within the scope `Main`. The JavaScript equivalent is `window` (the browser window).
 
-We'll dive much deeper into scope in JavaScript, but for all intents and purposes, a global variable is any variable defined within the `window`. You can also think of it as any variable that exists outside of a function (or method) is a global variable.
+We'll dive much deeper into scope in JavaScript, but for all intents and purposes a global variable is any variable defined within the `window`. You can also think of global variables as any variable existing outside of a function (or method).
 
 
 
@@ -187,7 +187,7 @@ cuteAnimal;
 
 ```
 
-See? Nothing breaks, but if you have a lot of shadowed variables (or even just a lot of space between a
+See? Nothing breaks, but, if you have a lot of shadowed variables (or even just a lot of space between a
 variable's initial declaration and its subsequent change(s)), you're gonna have a bad time.
 
 ## Changing Variable Values
@@ -240,5 +240,3 @@ greeting
 * [StackOverflow - How to define multiple variables on a single line?](http://stackoverflow.com/q/4166785/2890716)
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/intro-to-variables.js' title='JavaScript Variables'>JavaScript Variables</a> on Learn.co and start learning to code for free.</p>
-
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/intro-to-variables.js'>Intro To Variables in JS</a> on Learn.co and start learning to code for free.</p>
