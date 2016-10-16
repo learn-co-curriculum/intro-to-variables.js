@@ -15,7 +15,7 @@ Just like Ruby, variables are assigned values using the `=` operator. Variable n
 
 ## Declaring Variables
 
-Lets say I have the variable `word`. In Ruby, to assign a value to this variable, we would simple do
+Lets say I have the variable `word`. In Ruby, to assign a value to this variable, we would simply do
 
 ```ruby
 word = "hey"
@@ -23,7 +23,7 @@ word = "hey"
 
 Ruby would understand automatically that we're creating a new variable and assigning it a value. If this variable was created in a method, it would only exist in the scope of the method. If it was created in a block, it would only exist in the scope of that block. Later in the method or block when you used that variable, Ruby wouldn't think to look outside the block for the variable definition.
 
-JavaScript variables operates a little differently, and scope in JavaScript operates a lot differently. JavaScript variables must be declared before they can be assigned a value. If you don't declare your variable, JavaScript will bubble up through layers of scope (up out of the function you defined your variable in), till it finds a declared variable with that name. This means you could end up using different values than you thought you were.
+JavaScript variables operate a little differently, and scope in JavaScript operates a lot differently. JavaScript variables must be declared before they can be assigned a value. If you don't declare your variable, JavaScript will bubble up through layers of scope (up out of the function you defined your variable in), till it finds a declared variable with that name. This means you could end up using different values than you thought you were.
 
 Go ahead and open up a Chrome or Firefox browser window, and open up the Developer Tools. Feel free to code along with these examples.
 
@@ -240,3 +240,5 @@ greeting
 * [StackOverflow - How to define multiple variables on a single line?](http://stackoverflow.com/q/4166785/2890716)
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/intro-to-variables.js' title='JavaScript Variables'>JavaScript Variables</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/intro-to-variables.js'>Intro To Variables in JS</a> on Learn.co and start learning to code for free.</p>
